@@ -27,6 +27,11 @@ ext {
   springfoxRfc6570Version = "1.0.0"
   undercouch = "3.4.3"
   validationApiVersion = '2.0.1.Final'
+  javaxXmlBindVersion = '2.3.0'
+  sunXmlBindVersion = '2.2.11'
+  javaxActivationVersion = '1.1.1'
+  javaxAnnotationVersion = '1.3.2'
+
 
   libs = [
 
@@ -70,6 +75,10 @@ ext {
           core          : [
                   "com.fasterxml:classmate:${classmate}",
                   "org.slf4j:slf4j-api:${slf4j}",
+                  "javax.xml.bind:jaxb-api:$javaxXmlBindVersion",
+                  "com.sun.xml.bind:jaxb-core:$sunXmlBindVersion",
+                  "com.sun.xml.bind:jaxb-impl:$sunXmlBindVersion",
+                  "javax.activation:activation:$javaxActivationVersion"
           ]
   ]
 }

@@ -83,7 +83,7 @@ class QueryStringUriTemplateDecorator implements PathDecorator {
     return context.getParameters().stream()
         .filter(queryStringParams().and(onlyOneAllowableValue().negate()))
         .map(Parameter::getName)
-        .collect(toCollection(() -> new TreeSet(naturalOrder())));
+        .collect(toCollection(TreeSet::new));
   }
 
   @SuppressWarnings("unchecked")
@@ -91,7 +91,7 @@ class QueryStringUriTemplateDecorator implements PathDecorator {
     return String.join("&", context.getParameters().stream()
         .filter(onlyOneAllowableValue())
         .map(queryStringWithValue())
-        .collect(toCollection(() -> new TreeSet(naturalOrder()))))
+        .collect(toCollection(TreeSet::new)))
         .trim();
   }
 

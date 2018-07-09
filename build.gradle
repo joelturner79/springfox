@@ -28,7 +28,7 @@ apply plugin: 'springfox-multi-release'
 
 ext {
   apiKey = System.getenv('GIT_HUB_API_KEY')
-  jdkVersion = 1.8
+  jdkVersion = 10
 }
 
 allprojects {
@@ -74,6 +74,8 @@ subprojects {
   configurations {
     provided
     compile.extendsFrom provided
+
+    all*.exclude group: 'org.codehaus.groovy', module: 'groovy-xml'
   }
 
   jvmsrc {
@@ -98,9 +100,6 @@ subprojects {
     }
   }
 
-  test {
-    jvmArgs "-Dorg.spockframework.mock.ignoreByteBuddy=true"
-  }
 }
 
 apply from: "$rootDir/gradle/documentation.gradle"

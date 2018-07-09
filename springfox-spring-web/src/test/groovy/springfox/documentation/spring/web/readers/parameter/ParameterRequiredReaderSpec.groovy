@@ -118,6 +118,7 @@ class ParameterRequiredReaderSpec extends DocumentationContextSpec implements Pa
 
   def "should detect java.util.Optional parameters"() {
     given:
+    def operationCommand = Mock(ParameterRequiredReader)
     def resolvedMethodParameter = new ResolvedMethodParameter(
         0,
         "",
@@ -131,12 +132,6 @@ class ParameterRequiredReaderSpec extends DocumentationContextSpec implements Pa
         Mock(OperationContext))
 
     when:
-    def operationCommand = new ParameterRequiredReader(description) {
-      @Override
-      def boolean isOptional(ResolvedMethodParameter input) {
-        true
-      }
-    }
     operationCommand.apply(parameterContext)
 
     then:

@@ -5,7 +5,7 @@ allprojects {
 
 idea {
   project {
-    languageLevel = '1.8'
+    languageLevel = '10'
     vcs = 'Git'
     ipr {
       withXml { provider ->

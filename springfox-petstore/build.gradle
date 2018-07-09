@@ -1,5 +1,5 @@
 ext {
-  jdkVersion = 1.8
+  jdkVersion = 10
 }
 compileJava.options.encoding = 'UTF-8'
 
